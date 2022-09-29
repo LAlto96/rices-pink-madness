@@ -1,0 +1,167 @@
+* {
+  	font-family: "JetbrainsMono Nerd Font" ;
+	font-size: 12px;
+	min-height: 7px;
+}
+
+.modules-left{
+	background-color: rgba(4, 53, 101, 0.15);
+}
+
+.modules-right{
+	background-color: rgba(4, 53, 101, 0.15);
+}
+
+window#waybar {
+	background: #010E13;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+#tags {
+	margin-top: 0px;
+	font-size: 4px;
+	margin-bottom: 0px;
+	border-radius: 5px;
+	min-width: 0;
+	background: rgba(10, 31, 37, 0.3);
+	transition: none;
+}
+
+#tags button {
+	min-width: 25px;
+	transition: none;
+	color: #aabb9b;
+	background: transparent;
+	font-size: 16px;
+	border-radius: 2px;
+}
+
+#tags button.occupied {
+	transition: none;
+	color: #F26DF9;
+	background: transparent;
+	font-size: 4px;
+}
+
+#tags button.focused {
+	color: #EB4B98;
+    border-top: 2px solid #EB4B98;
+    border-bottom: 2px solid #EB4B98;
+}
+
+#tags button:hover {
+	font-weight: bold;
+	transition: none;
+	box-shadow: inherit;
+	text-shadow: inherit;
+	color: #EB4B98;
+    border-color: #EB4B98;
+    color: #EB4B98;
+}
+
+#tags button.focused:hover {
+    color: #e5fcd1;
+}
+
+#tags button.urgent {
+        border-top: 2px solid #fb4934;
+        border-bottom: 2px solid #fb4934;
+}
+
+
+
+#network {
+	padding-left : 10px;
+	padding-right : 10px;
+	color: #e5fcd1;
+}
+
+#pulseaudio {
+	padding-left : 10px;
+	padding-right : 10px;
+	color: #e5fcd1;
+}
+#pulseaudio.muted{
+	color: #EB4B98;
+}
+
+#battery {
+	padding-left : 10px;
+	padding-right : 10px;
+	color: #e5fcd1;
+}
+
+#battery.charging, #battery.plugged {
+	color: #EB4B98;
+}
+
+#battery.critical:not(.charging) {
+    color: #F26DF9;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        color: #EB4B98;
+    }
+}
+
+#backlight {
+	padding-left : 10px;
+	padding-right : 10px;
+	color: #e5fcd1;
+}
+#clock {
+	padding-left : 10px;
+	padding-right : 10px;
+	color: #e5fcd1;
+}
+
+#memory {
+	padding-left : 10px;
+	padding-right : 10px;
+	color: #e5fcd1;
+}
+#cpu {
+	padding-left : 10px;
+	padding-right : 10px;
+	color: #e5fcd1;
+
+}
+
+#tray {
+	padding-left : 10px;
+	padding-right : 10px;
+	color: #e5fcd1;
+}
+
+#custom-launcher {
+	padding-left: 5px;
+	padding-right: 10px;
+	font-size: 24px;
+	color : #EB4B98;
+   }
+
+#custom-power {
+	padding-left : 10px;
+	padding-right : 8px;
+	font-size: 24px;
+	color: #EB4B98;
+}
+
+#keyboard-state{
+	padding-left : 10px;
+	padding-right :0px;
+	color: #e5fcd1;
+}
+
+#keyboard-state label.locked {
+	color: #EB4B98;
+}

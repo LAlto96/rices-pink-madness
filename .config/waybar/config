@@ -1,0 +1,122 @@
+{
+    "gtk-layer-shell": false,
+	"layer": "top",
+	"modules-left": ["custom/launcher","battery","backlight","cpu","memory"],
+	"modules-center": ["river/tags"],
+	"modules-right": ["tray","keyboard-state","pulseaudio", "network", "clock","custom/power"],
+	
+	"pulseaudio": {
+        "tooltip": false,
+        "scroll-step": 5,
+        "format": " {icon} {volume}%",
+        "format-muted": " 婢 {volume}%",
+        "format-icons": {
+        "default": ["奄", "奔", "墳"]
+        },
+        "on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-scroll-up": "pamixer -i 1 && notify-volume",
+        "on-scroll-down": "pamixer -d 1 && notify-volume"
+	},
+
+    "river/tags": {
+        "num-tags": 9
+    },
+
+    "keyboard-state": {
+   	    "numlock": true,
+    	"capslock": true,
+    	"format": "{name} {icon}",
+    	"format-icons": {
+        	"locked": "  ",
+        	"unlocked": "  "
+   		}		
+	},   
+
+	"network": {
+		"tooltip": false,
+        "format": "{icon}",
+        "format-alt": "{ipaddr} {icon}",
+        "format-alt-click": "click-right",
+        "format-icons": {
+            "wifi": [" "],
+            "ethernet": [" "],
+            "disconnected": ["睊"],
+        },
+        "on-click": "kitty -e nmtui"
+	},
+
+	"backlight": {
+		"format": " {}%",
+		"interval":1,
+        "on-scroll-up": "light -A 5",
+		"on-scroll-down": "light -U 5",
+        "interval": 2,
+        "align": 0,
+        "rotate": 0,
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", ""],
+        "on-click": "",
+        "on-scroll-up": "light -A 5%",
+        "on-scroll-down": "light -U 5%",
+        "smooth-scrolling-threshold": 1,
+	},
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+	"tray":{
+		"icon-size":18,
+		"spacing": 10
+	},
+    "clock": {
+        "format": "{: %I:%M}",
+        "format-alt": "{: %I:%M   %d/%m/%Y}"
+    },
+    "cpu": {
+        "interval": 15,
+        "on-click": "kitty btop",
+        "format": " {avg_frequency}GHz",
+        "max-length": 10
+    },
+    "memory": {
+        "interval": 30,
+        "on-click": "kitty btop",
+        "format": " {}%",
+        "max-length": 10
+    },
+    "custom/launcher":{
+        "format": " ",
+        "on-click": "ulauncher-toggle",
+        "on-click-right": "gnome-control-center"
+    },
+    "custom/power":{
+        "format": "襤",
+        "on-click": "wlogout -p layer-shell"
+    },
+    "custom/updates":{
+        "format": "{} Update(s)",
+        "exec": "checkupdates | wc -l",
+        "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+        "interval": 15,
+        "on-click": "foot -e yay -Syu && notify-send 'The system has been updated' "
+    },
+    "custom/mpc":{
+        "interval": 1,
+        "format": "{}",
+        "max-length": 20,
+        "exec": "~/.config/waybar/mpc",
+        "on-click": "foot ncmpcpp",
+        "on-click-right": "mpc toggle",
+        "on-click-middle": "notify-status",
+        "on-scroll-up": "mpc next",
+        "on-scroll-down": "mpc prev",
+    }
+}
